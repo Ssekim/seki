@@ -537,7 +537,9 @@ def get_orderbook_depth():
         return jsonify(orderbooks)
     except Exception as e:
         return jsonify({"error": str(e)})
-
+@app.route("/ping")
+def ping():
+    return "pong"
 if __name__ == "__main__":
     # Start balance update thread
     balance_thread = threading.Thread(target=balance_update_thread, daemon=True)
